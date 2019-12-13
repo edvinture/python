@@ -10,15 +10,15 @@ for i in range(n):
             best_i, best_j = i, j
 print(best_i, best_j)
 #2 снежинка
-n = int(input()) #строки
-a = [['.'] * n for i in range(n)]
+n = int(input())
+a = [['.'] * n for i in range(n)] #Создание двухмерного массива из n×n элементов и его заполнения символами '.'
 for i in range(n):
-    a[i][i] = '*'
-    a[n // 2][i] = '*'
-    a[i][n // 2] = '*'
-    a[i][n - i - 1] = '*'
+    a[i][i] = '*' # заполняем символами "*" среднюю строку массива
+    a[n // 2][i] = '*' # заполняем символами "*" средний столбец массива
+    a[i][n // 2] = '*' # заполняем символами "*" главную диагональ
+    a[i][n - i - 1] = '*' # заполняем символами "*" пробочную диагональ
 for row in a:
-    print(' '.join(row))
+    print(' '.join(row)) #Вывод получившегося
 #3 шахматная доска
 n, m = [int(i) for i in input().split()]
 a = []
@@ -37,17 +37,17 @@ a = [[abs(i - j) for j in range(n)] for i in range(n)]
 for row in a:
     print(' '.join([str(i) for i in row]))
 #5 Побочная диагональ
-n = int(input()) #строки
-a = [[0] * n for i in range(n)]
+n = int(input()) 
+a = [[0] * n for i in range(n)] # Делаем диагональ из чисел равных 0. 
 for i in range(n):
-    a[i][n - i - 1] = 1
-for i in range(n):
+    a[i][n - i - 1] = 1 # Диагональ из цифр 1
+for i in range(n): # Создание двухмерного массива
     for j in range(n - i, n):
-        a[i][j] = 2
+        a[i][j] = 2 # Диагональ из цифр 2
 for row in a:
-    for elem in row:
-        print(elem, end=' ')
-    print()
+    for elem in row: # Делаем строки из элементов
+        print(elem, end=' ') # Вывод элемента
+    print() # Принт получившегося
 #6 Поменять столбцы
 def swap_columns(a, i, j):
     for k in range(len(a)):
@@ -55,7 +55,7 @@ def swap_columns(a, i, j):
  
 n, m = [int(i) for i in input().split()]
 a = [[int(j) for j in input().split()] for i in range(n)]
-i, j = [int(i) for i in input().split()]
+i, j = [int(i) for i in input().split()] # Создание двумерного массива и два числа: i и j.
 swap_columns(a, i, j)
 print('\n'.join([' '.join([str(i) for i in row]) for row in a]))
 
