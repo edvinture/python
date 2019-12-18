@@ -20,17 +20,21 @@ for i in range(n):
 for row in a:
     print(' '.join(row)) #Вывод получившегося
 #3 шахматная доска
-n, m = [int(i) for i in input().split()]
-a = []
+n = 10
+m = 10
+a = []# создаём нужные переменные
 for i in range(n):
-    a.append([])
-    for j in range(m):
-        if (i + j) % 2 == 0:
-            a[i].append('.')
+    a.append(["."]*m)#заполняем массив точками
+for i in range(n):
+    for t in range(m):
+        if i%2==t%2 : # условия
+            a[i][t]='.'
         else:
-            a[i].append('*')
-for row in a:
-    print(' '.join(row))
+            a[i][t]='*'
+for i in range(n):#выводим массив
+    print()
+    for t in range(m):
+        print(a[i][t],end=' ')
 #4 Диагонали, параллельные главной
 n = int(input()) #строки
 a = [[abs(i - j) for j in range(n)] for i in range(n)]
@@ -63,8 +67,7 @@ print('\n'.join([' '.join([str(i) for i in row]) for row in a]))
 n= int(input('строки '))
 m =int(input('столбцы '))
 a = [[m*i+j if i%2==0 else m*(i+1)-j-1  for j in range(m)]for i in range(n)]
-#если строка чётная(0,2,4...), то значения идут слева на право, m*i - первое значение строки, m*(i+1) - первое значение следующей строки
-for i in range(n):#выводим массив
+for i in range(n):
     print()
     for t in range(m):
         print('{:>5}'.format(a[i][t]),end=' ')
