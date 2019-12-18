@@ -62,4 +62,4 @@ print('\n'.join([' '.join([str(i) for i in row]) for row in a]))
 #7 змейка
 n, m = map(int, input().split())
 for j in range(n):
-    print(' '.join([str(i + 1 + m * j) for i in range(m)][::pow(-1, j)]))
+    print(' '.join(['{:>4}'.format(i + 0 + m * j) for i in range(m)][::pow(-1, j)]))
