@@ -60,6 +60,11 @@ swap_columns(a, i, j)
 print('\n'.join([' '.join([str(i) for i in row]) for row in a]))
 
 #7 змейка
-n, m = map(int, input().split())
-for j in range(n):
-    print(' '.join(['{:>4}'.format(i + 0 + m * j) for i in range(m)][::pow(-1, j)]))
+n= int(input('строки '))
+m =int(input('столбцы '))
+a = [[m*i+j if i%2==0 else m*(i+1)-j-1  for j in range(m)]for i in range(n)]
+#если строка чётная(0,2,4...), то значения идут слева на право, m*i - первое значение строки, m*(i+1) - первое значение следующей строки
+for i in range(n):#выводим массив
+    print()
+    for t in range(m):
+        print('{:>5}'.format(a[i][t]),end=' ')
